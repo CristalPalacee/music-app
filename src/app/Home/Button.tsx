@@ -8,6 +8,10 @@ export function PlayRandomButton() {
 const [isLoading, setIsLoading] = useState(false);
 const handleFollowIG = async () => {
     setIsLoading(true);
+
+
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     // Ganti 'zagoours' dengan username IG asli kamu
     const instagramUrl = "https://www.instagram.com";
     
@@ -22,7 +26,7 @@ const handleFollowIG = async () => {
 
       <button
         onClick={handleFollowIG}
-      
+        disabled={isLoading} // Matikan tombol saat loading
         className="w-60 rounded-lg flex gap-2 items-center justify-center bg-black px-6 py-2 font-medium text-white
         transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800
         disabled:opacity-50 disabled:cursor-not-allowed
