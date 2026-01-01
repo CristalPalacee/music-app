@@ -1,4 +1,4 @@
-
+export const dynamic = 'force-dynamic' 
 // import Hero from "@/app/Home/Hero";
 import Card from "@/app/Home/Card";
 import { getSongs} from "@/api/route";

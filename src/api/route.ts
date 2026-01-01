@@ -1,4 +1,4 @@
- const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL
+ const API_URL = process.env.API_URL
 
  export interface Song {
    id: number
@@ -12,7 +12,7 @@
    async function fetchSongs<R>(
     endpoint: string,
    ): Promise<R> {
-    const response = await fetch(`${BASE_API_URL}${endpoint}`, {
+    const response = await fetch(`${API_URL}${endpoint}`, {
         headers: {
             'Content-Type': "application/json",
         },
@@ -39,9 +39,9 @@ export const getSongs = () => {
 
 // ===== DETAIL SONG =====
 export async function getSongById(id: number): Promise<Song | null> {
-  if (!BASE_API_URL) return null;
+  if (!API_URL) return null;
 
-  const res = await fetch(`${BASE_API_URL}/api/songs/${id}`, {
+  const res = await fetch(`${API_URL}/api/songs/${id}`, {
     cache: "no-store",
   });
 
