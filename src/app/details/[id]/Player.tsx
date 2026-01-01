@@ -49,6 +49,29 @@ useEffect(() => {
 }, []);
 
 
+  // ⏱️ EVENT TIME & DURATION (INI YANG SEBELUMNYA HILANG)
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const onTimeUpdate = () => {
+      setCurrent(audio.currentTime);
+    };
+
+    const onLoadedMetadata = () => {
+      setDuration(audio.duration || 0);
+    };
+
+    audio.addEventListener("timeupdate", onTimeUpdate);
+    audio.addEventListener("loadedmetadata", onLoadedMetadata);
+
+    return () => {
+      audio.removeEventListener("timeupdate", onTimeUpdate);
+      audio.removeEventListener("loadedmetadata", onLoadedMetadata);
+    };
+  }, []); 
+
+
 const toggle = async () => {
   if (!audioRef.current) return;
 
@@ -85,6 +108,7 @@ const toggle = async () => {
         min={0}
         max={duration || 0}
         value={current}
+        step={0.1}
         onChange={seek}
         className="w-full accent-green-500"
       />
