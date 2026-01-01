@@ -23,7 +23,7 @@ export default function Card({ songs, title }: CardProps) {
      const router = useRouter();
     return (
   
-        <div className='grid grid-cols-1  md:grid-cols-3 justify-center px-3 gap-16'>
+        <div className='grid grid-cols-1  md:grid-cols-3 justify-center px-3 gap-10 md:gap-16'>
             {songs.map((song, index) => (
          <motion.div
           key={song.id}

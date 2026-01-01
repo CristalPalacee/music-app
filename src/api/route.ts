@@ -26,7 +26,7 @@
     }
 
 
-    const data = response.json()
+    const data = await response.json()
     console.log("DAta :", data)
 
     return data as R

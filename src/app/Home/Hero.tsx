@@ -4,13 +4,17 @@
 import { Spotlight } from "@/components/ui/spotlight";
 import { TypewriterEffect } from "@/components/ui/typewriter";
 import { motion } from "motion/react";
+import { PlayRandomButton } from "./Button";
+
 
 export function HeroSectionOne() {
+
+
   return (
     <div className=" h-screen w-full   flex items-center justify-center">
       <Spotlight />
       
-      <div className="px-4 py-7 md:py-10">
+      <div className="px-4 py-2 md:py-10">
         <h1 className="relative z-10 mx-auto  text-center text-3xl  font-bold text-slate-300 md:text-5xl lg:text-7xl dark:text-slate-300">
           {"Welcome to My Musik"
             .split(" ")
@@ -60,10 +64,7 @@ export function HeroSectionOne() {
           }}
           className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
         >
-          <button className="w-60 transform rounded-lg bg-black px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
-            Play Now
-          </button>
-
+         <PlayRandomButton   />
         </motion.div>
 
       </div>
