@@ -5,6 +5,8 @@ import BackButtons from "./Back";
 import Player from "./Player";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import AOS from 'aos';
 interface DetailsProps {
   song: Song;
 }
@@ -23,14 +25,27 @@ export default function Details({ song }: DetailsProps) {
   };
  
 
+   useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      once: true,
+      easing: "ease-out",
+       offset: 200, 
+    });
+
+    AOS.refresh(); // ✅ WAJIB untuk App Router
+  }, [song.id]); // ✅ supaya re-trigger saat ganti lagu
+
   return ( 
     <BackgroundBeamsWithCollision className="min-h-screen">
       {/* CONTENT */}
-      <div className="relative z-10 min-h-screen flex flex-col text-white">
+      <div  className="relative z-10 min-h-screen flex flex-col text-white">
         
         {/* KONTEN UTAMA */}
         <div className="flex flex-1 flex-col items-center justify-center px-6">
           <img
+           data-aos="fade-down"
+            data-aos-offset="600"
             src={song.cover}
             alt={song.title}
             className="w-64 md:w-96 object-cover aspect-square rounded-2xl shadow-xl"

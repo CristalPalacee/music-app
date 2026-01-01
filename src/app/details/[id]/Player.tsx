@@ -94,9 +94,10 @@ const toggle = async () => {
         <span>{format(duration)}</span>
       </div>
 
-      <div className="mt-4 flex items-center justify-center gap-6">
+      <div className="mt-4 flex  items-center justify-center gap-6">
         {/* PREV */}
-        <button  
+        <button 
+        className="cursor-pointer" 
     onClick={() => {
     shouldAutoPlay.current = true;
     onPrev();
@@ -109,7 +110,7 @@ const toggle = async () => {
         {/* PLAY */}
       <button
           onClick={toggle}
-          className="group relative flex h-10 w-10 items-center justify-center rounded-full bg-green-500 transition hover:scale-105 active:scale-95"
+          className="group relative cursor-pointer flex h-10 w-10 items-center justify-center rounded-full bg-green-500 transition hover:scale-105 active:scale-95"
         >
           <svg
             viewBox="0 0 60 60"
@@ -135,6 +136,7 @@ const toggle = async () => {
 
         {/* NEXT */}
         <button 
+        className="cursor-pointer"
          onClick={() => {
         shouldAutoPlay.current = true;
         onNext();

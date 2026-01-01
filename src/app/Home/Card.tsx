@@ -6,20 +6,35 @@ import { getSongs, Song } from "@/api/route";
 import { useRouter } from "next/navigation";
 import { BackgroundGradient } from '@/components/ui/background-gradient';
 import Link from 'next/link';
+import { motion } from 'framer-motion'
+import { cardItem } from '@/components/ui/AnimateSrol';
+
+
 
 interface CardProps {
     songs: Song[]
     title: string
 
+
+
+
 }
 export default function Card({ songs, title }: CardProps) {
      const router = useRouter();
     return (
-        <div className='grid grid-cols-1  md:grid-cols-3 justify-center px-3 gap-10'>
-            {songs.map((song) => (
+  
+        <div className='grid grid-cols-1  md:grid-cols-3 justify-center px-3 gap-16'>
+            {songs.map((song, index) => (
+         <motion.div
+          key={song.id}
+          variants={cardItem(index)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+        >
                 <Link href={`/details/${song.id}`}
                 className='mb-3 cursor-pointer group md:w-100 rounded-2xl transition
-                              hover:shadow-xl' key={song.id}>
+                              hover:shadow-xl'>
                 <BackgroundGradient className='p-4 rounded-2xl sm:p-6 bg-zinc-900 dark:bg-zinc-900'>
                     <div className=' overflow-hidden w-full rounded-xl'>
                         <img
@@ -34,7 +49,9 @@ export default function Card({ songs, title }: CardProps) {
                 </BackgroundGradient>
                
                 </Link>
+                 </motion.div>
             ))}
         </div>
+         
     );
 }

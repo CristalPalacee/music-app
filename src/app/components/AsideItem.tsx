@@ -20,7 +20,7 @@ export default function AsideItem({
   return (
     <Link
       href={href}
-      className="group flex justify-center items-center  gap-4 rounded-md p-2 
+      className="group flex justify-center items-center  gap-4 rounded-md p-1 md:p-1 
              hover:bg-blue-400/20 dark:hover:bg-gray-800 transition"
     >
       <Icon size={20} />

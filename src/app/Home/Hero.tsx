@@ -7,8 +7,9 @@ import { motion } from "motion/react";
 
 export function HeroSectionOne() {
   return (
-    <div className=" h-screen w-full  flex items-center justify-center">
+    <div className=" h-screen w-full   flex items-center justify-center">
       <Spotlight />
+      
       <div className="px-4 py-7 md:py-10">
         <h1 className="relative z-10 mx-auto  text-center text-3xl  font-bold text-slate-300 md:text-5xl lg:text-7xl dark:text-slate-300">
           {"Welcome to My Musik"

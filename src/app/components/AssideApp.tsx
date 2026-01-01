@@ -16,7 +16,7 @@ export default function AssideApp({ collapsed, setCollapsed }: AssideAppProps) {
   return (
     <aside
       className={`flex flex-col  left-0 h-full fixed z-60 bg-black/30 backdrop-blur dark:bg-gray-900  dark:border-gray-800 transition-all duration-600 ease-in-out
-        ${collapsed ? "w-20" : "md:w-50 w-45"}
+        ${collapsed ? "w-15 md:w-20" : "md:w-50 w-45"}
         overflow-hidden`}
     > 
       {/* Header */}
